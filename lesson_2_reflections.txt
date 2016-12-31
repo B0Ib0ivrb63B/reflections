@@ -1,0 +1,121 @@
+
+
+	NOTE: my HOME DIRECTORY FOR GIT MINGW64 is: C:\Users\cjmsn
+	NOTE: For this course, files are located at: 
+		$ cd Desktop/UDACITY/Udacity\ \ \ How\ to\ use\ Git\ and\ GitHub/version-control/reflections/
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Lesson 2: Learn more about Git and start using it on your own
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	
+============
+Question: 
+============
+What happens when you initialize a repository? Why do you need to do it?
+
+-----------
+My answer: 
+-----------
+A 'git' repository is created (hidden file name .git), and when you run the command 'git status' you will see that
+it is 'empty', with no history (notinh has been commited yet).
+
+EXAMPLE: 
+
+	cjmsn (master #) reflections $ git status
+	On branch master
+
+	Initial commit
+
+	Untracked files:
+	(use "git add <file>..." to include in what will be committed)
+
+		lesson_1_reflections.txt.txt
+		lesson_2_reflections.txt.txt
+
+	nothing added to commit but untracked files present (use "git add" to track)
+	cjmsn (master #) reflections $
+
+
+
+-----------
+My NOTES: 
+-----------
+
+'git init'
+nitializing a Git Repository: Each Git repository is tied to a specific directory 
+e.g. - the directory where you run the command 'git init'. Only files from that directory 
+(and subdirectories inside that directory) will be contained in that repository, and you can 
+have different repositories in different directories.
+
+Note: it's often the case that a Git repository in some directory will only contain, or track, 
+some of the files in that directory, rather than all of them. You'll see how this works later.
+
+'git status'
+This is a nice command because it shows you a summary of what files have changes since the 
+last commit.
+
+
+
+============
+Question: 
+============
+How is the staging area different from the working directory and the repository? What value do you 
+think it offers?
+
+-----------
+My answer: 
+-----------
+Files inthe staging area and not 'tracked' as versions by git, but using an intermediary 'staging area' 
+allows you fine-grained control over which files and changes are tracked in any given commit snapshot.
+
+-----------
+My NOTES: 
+-----------
+How to choose what changes and files to commit 'in a bundle'
+
+On your hard drive you have your 'reflections' 'working directory' with your two files named 
+lesson_1_reflections.txt and lesson_2_reflections.txt.  You also have your empty git repository named
+'.git'. How to add commits to this repository  Well, you could run individual commit commands to create
+individual snapshots, but how to 'bundle' groups of files?  Git uses an intermediary directory called 
+the 'staging area' to do this.  you add files to this staging area, then when you are ready to commit git
+bundles the entire contents of the staging area into a single commit, and adds it into the repository.  The command to 'add' a file to this staging area is 'git add'.
+
+NOTE: If you accidentally add a file to the staging area, you can remove it using 'git reset' <filename>.
+
+EXAMPLE - BEFORE ADDING TO STAGING: 
+	cjmsn (master #) reflections $ git status
+	On branch master
+
+	Initial commit
+
+	Untracked files:
+	  (use "git add <file>..." to include in what will be committed)
+
+			lesson_1_reflections.txt
+			lesson_2_reflections.txt
+
+	nothing added to commit but untracked files present (use "git add" to track)
+	
+	
+EXAMPLE - AFTER ADDING ONE FILE TO STAGING: 
+	cjmsn (master #) reflections $ git add lesson_1_reflections.txt
+	cjmsn (master +) reflections $ git status
+	On branch master
+
+	Initial commit
+
+	Changes to be committed:                      <======================= NOTE THIS APPEARS NOW
+	  (use "git rm --cached <file>..." to unstage)
+
+			new file:   lesson_1_reflections.txt
+
+	Untracked files:
+	  (use "git add <file>..." to include in what will be committed)
+
+			lesson_2_reflections.txt
+
+
+	
+
