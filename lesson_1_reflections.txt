@@ -1,0 +1,330 @@
+
+
+	NOTE: my HOME DIRECTORY FOR GIT MINGW64 is: C:\Users\cjmsn
+	NOTE: For this course, files are located at: 
+		$ cd Desktop/UDACITY/Udacity\ \ \ How\ to\ use\ Git\ and\ GitHub/version-control/asteroids/
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Lesson 1: How version control can be useful and what some forms it can take:
+	* install Git and use it on some test code provided (two JavaScript games: asteroids and pappu-pakia)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+------------------------------------
+How to Use Git and GitHub 
+Version Control for Code:
+------------------------------------
+STARTED - 12/28/2016
+Beginner 
+Effective use of version control is an important and useful skill for any developer working on long-lived (or even medium-lived) projects, especially if more than one developer is involved. This course, built with input from GitHub, will introduce the basics of using version control by focusing on a particular version control system called Git and a collaboration platform called GitHub. This course is part of the Front End and Full Stack Nanodegrees.
+
+In this course you will learn how to use Git and GitHub using a command line unix like interface (Git Gash) on the 
+Windows menu, called 'mintty', which is based on 'PuTTy'.  You can read more about the mintty project at http://mintty.github.io.  Basically, Mintty is a terminal emulator for Cygwin, MSYS or Msys2, and derived projects, and for WSL. Note #1: you can still run windows command while using MinTTY). Note #2: by default, MinTTY copies on select 
+and pastes on right-click, just like Linux.
+
+What is covered:
+Lesson 1: How version control can be useful and what some forms it can take:
+	* install Git and use it on some test code provided (two JavaScript games: asteroids and pappu-pakia)
+Lesson 2: Learn more about Git and start using it on your own
+Lesson 3: Get practice scollaborting with others and sharing code using GitHub
+
+	
+============
+Question: 
+============
+How did viewing a diff between two versions of a file help you see the bug that was introduced?
+
+-----------
+My answer:
+-----------
+It (Windows FC command) certainly DID find all of the differences between the two files, but what it 
+DID NOT DO was show syntax errors or mis-spelled words. When I first went through the comparison, 
+I was expecting the 'typo' (that we were to find) to stand out, e.g 'BUTON' vs 'BUTTON',  the 'wrong' 
+type was 'spacr' which was supposed to be 'space'.  To me. I thought that perhaps the programmer has 
+simply used an abbreviated form for 'spacer', and so I did not correctly identify this as a 'typo' 
+until deciding that there really were no other resonable choices.
+
+
+============
+Question: 
+============
+How could having easy access to the entire history of a file make you a more efficient programmer in the long term?
+
+-----------
+My answer: 
+-----------
+The lesson talked about two popular file sharing services: 
+
+DropBox (file-sharing), saves version for 30 days ... and
+Google Docs (file-sharing), saves who did what and versions for entire life of the document.
+
+It could help in a couple of ways, the most obvious being that you always have a backup copy of your latest work. 
+But in addition you could possible devise a way to determin the 'evolution' of your code growth and perhaps even 
+metrics on way part of your code took the logest to code, etc (by comparing file save timestamps).
+
+============
+Question: 
+============
+What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs 
+having versions automatically saved, like Google Docs does?
+
+-----------
+My answer: 
+-----------
+A PRO is that you have fine-grained control and can make 'save-points reflect logical additions/changes to the 
+code.  One CON is that you may get lazy or not commit a change often enough and risk losing valuable work.
+
+-----------
+My NOTES: 
+-----------
+Git created in 2005 (British for 'unpleasant person'). Git  llows 'manual' checkpoints or versions to be created 
+but also requires that a 'COMMIT message' be provided as a comment or a way to document the changes made in that 
+iteration.  Git also has a utility similar to Windows FC command named 'GIT DIFF, except that it compares two 
+versions of a file saved in the git system, and it is color coded (black is UNCHANGED, -red is REMOVED, and +green 
+is ADDED). NOTE: A good rule of thumb is to make one commit per logical change. If you do this, each commit will 
+have one purpose that can be easily understood. Git allows you to write a short message explaining what was 
+changed in each commit, and that message will be more useful if each commit has a single logical change.
+
+
+============
+Question: 
+============
+Why do you think some version control systems, like Git, allow saving multiple files in one commit, while others, 
+like Google Docs, treat each file separately?
+
+-----------
+My answer: 
+-----------
+Often you may want to track changes across multiple files simultaneously.  Git calls these collections 'REPOSITORIES'.
+This makes sense because in coding you may be working on several files at once in order to implement functionality, 
+for example HTML and CSS files.
+
+To change to your git home directory:
+		$ cd ~
+
+============
+Question: 
+============
+How can you use the commands git log and git diff to view the history of files?
+ 
+-----------
+My answer:
+-----------
+To search the commit log (across all branches) for the given text:
+  NOTE: MOST RECENT VERSIONS ARE SHOWN AT THE TOP (not the bottom)
+ 
+		$ git log --all --grep='Build 0051'
+
+To find the number of additions and deletions type:
+ 
+		$ git log --stat
+		
+or do a 'git diff' between this ID and the next (lower == previous) commit ID and count up the changes
+ 
+EXAMPLE: 
+		
+		WHAT IS THE COMMIT ID FOR COMMIT MESSAGE 'Revert Controls'? b0678b161fcf74467ed3a63110557e3d6229cfa6
+		HOW MANY LINES WERE ADDED? 4
+		HOW MANY LINES WERE DELETED? 4
+		
+		(NOTE THESE FILES ARE AT: ~/Desktop/UDACITY/Udacity   How to use Git and GitHub/version-control/asteroids)
+		$ cd Users/cjmsn/Desktop/UDACITY/Udacity\ \ \ How\ to\ use\ Git\ and\ GitHub/version-control/asteroids/
+		$ git log --stat
+ 
+		commit b0678b161fcf74467ed3a63110557e3d6229cfa6
+		Author: cbuckey <caroline@udacity.com>
+		Date:   Mon May 24 04:15:21 2010 -0700
+
+			Revert controls
+			
+		game.js | 8 ++++----
+		1 file changed, 4 insertions(+), 4 deletions(-)	
+
+ 
+-----------
+My NOTES: 
+-----------
+To get a copy of a code repository, Git calls this 'cloning'.  To clone a repository, run git clone followed by a space and the repository URL.  For example; to clone the Udacity Asteroids repository: type into the git bash window: 
+ git clone https://github.com/udacity/asteroids.git
+
+
+============
+Question: 
+============
+How might using version control make you more confident to make changes that could break something?
+
+-----------
+My answer:
+-----------
+Obviously if you can be assured that you can always revert back to a 'working version', then you will be more 
+likely to try new things while coding an not be so conservative.
+
+-----------
+My NOTES:
+-----------
+Checking out prior commits is called a git checkout.  It is like 'restoring' you code to the previous version, 
+a git checkout is restoring all of your files your files to the version they were at the time that commit was made.  
+For example: you can determine when a bug was introduced by checking out an older commit version and running it to 
+see if that version has the bug you are interested in.  Technically you are 'Use git log to find the revision you want to rollback to, and taking note of the commit hash, and rolling back to that version'.
+
+EXAMPLES: 
+	$ git checkout f19cb1b80fe27e938e4d72770ca0a42f25e99ecc  (Checks out this version AND MAKES IT THE CURRENT WORKING ONE)
+	$ git checkout <latest hash, YOU NEED TO NOTE THIS BEFORHAND!!!!>   (Sets current working version ABCK to the lastest)
+
+So the goal here is it sequentially chekout all versions from some starting point where you think the code was 'good', 
+working your way up the commits until you find the version where you introduced the bug...  The 'BUG' is that when
+uou hold down the 'space bar' key you get a continuous 'spray' of bullets instead of an intermittant one.
+
+EXAMPLE: 
+ $ git checkout f19cb1b80fe27e938e4d72770ca0a42f25e99ecc
+Note: checking out 'f19cb1b80fe27e938e4d72770ca0a42f25e99ecc'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+  
+NOTE: 
+ HEAD is what Git calls the commit you are currently on. You can “detach” the HEAD by switching to a previous commit, which we’ll see in the next video. Despite what it sounds like, it’s actually not a bad thing to detach the HEAD. Git just warns you so that you’ll realize you’re doing it.
+
+HEAD is now at f19cb1b... Fix typo in space
+ 
+ 
+ 
+ MOST RECENT COMMIT AT THE TOP:
+ $ git log --stat
+ 
+commit 3884eab839af1e82c44267484cf2945a766081f3
+Author: cbuckey <caroline@udacity.com>
+Date:   Fri Apr 29 12:33:05 2011 -0700
+
+    Add color
+
+ game.js | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+commit 3e42136a76cf78c6c421cd720427bf6337c2d623
+Author: Doug McInnes <doug@dougmcinnes.com>
+Date:   Tue Mar 15 22:34:49 2011 -0700
+
+    now using requestAnimationFrame
+
+    see this for more info:
+    http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+
+ game.js | 37 +++++++++++++++++++++++++++++--------
+ 1 file changed, 29 insertions(+), 8 deletions(-)
+
+commit 4035769377cce96a88d5c1167079e12f30492391
+Author: Doug McInnes <doug@dougmcinnes.com>
+Date:   Wed Jun 9 21:04:32 2010 -0700
+
+    frame interval was set wrong after game was paused
+
+ game.js | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 25ede836903881848fea811df5b687b59d962da3		<====================== continuous 'spray' of bullets?  YES !!!
+Author: Doug McInnes <doug@dougmcinnes.com>
+Date:   Wed May 26 23:52:00 2010 -0700
+
+    a couple missing ends with the ipad version
+
+ game.js    | 3 +--
+ index.html | 1 -
+ ipad.js    | 4 ++--
+ 3 files changed, 3 insertions(+), 5 deletions(-)
+
+commit df035382c41b4d0cda86a1aa30b53f15bef05b53		<====================== continuous 'spray' of bullets?  NO
+Author: Doug McInnes <doug@dougmcinnes.com>
+Date:   Tue May 25 22:18:23 2010 -0700
+
+    I can't spell 'screen' apparently :)
+
+ game.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b0678b161fcf74467ed3a63110557e3d6229cfa6		<====================== continuous 'spray' of bullets?  NO
+Author: cbuckey <caroline@udacity.com>
+Date:   Mon May 24 04:15:21 2010 -0700
+
+    Revert controls
+
+ game.js | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit f19cb1b80fe27e938e4d72770ca0a42f25e99ecc		<====================== continuous 'spray' of bullets?  NO
+Author: cbuckey <caroline@udacity.com>
+Date:   Mon May 24 04:03:05 2010 -0700
+
+    Fix typo in space
+
+ game.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+ 
+
+
+============
+Question: 
+============
+Now that you have your workspace set up, what do you want to try using Git for?
+
+-----------
+My answer:
+-----------
+I will use this for my personal coding projects on my laptop.
+
+-----------
+My NOTES: 
+-----------
+Configuring your own custom workspace: (Setting Up Your Workspace on Windows)
+
+Changing background color: 
+	If you prefer the background color of Git Bash to be something other than black, you can 
+	change it in the "Defaults" menu under the "Colors" tab. If you like the background color as-is, you don't need to 
+	make any changes.
+
+Downloading necessary files
+	Save this file in your home directory with the name git-completion.bash.
+	Save this file in your home directory with the name git-prompt.sh.
+	Download bash_profile_course from the Downloadables section.
+	If you already have a file in your home directory named .bash_profile, copy the content from 
+	bash_profile_course and paste it at the bottom of .bash_profile. Otherwise, move bash_profile_course to your 
+	home directory and rename it to .bash_profile. (If you're curious to learn more about how bash prompts work, 
+	see this page.)
+	
+	To move a file to your home directory, change to your home directory and then for example:
+	$ cd ~
+	$ mv Downloads/git-completion.bash .
+	$ mv Downloads/git-prompt.sh .
+	$ mv Downloads/bash_profile_course.txt  .bash_profile
+
+	NOTE: my HOME DIRECTORY FOR GIT MINGW64 is: C:\Users\cjmsn
+
+
+Making Git configurations
+	Run the following Git configuration commands. The first one will need to be modified if you are using a text 
+	editor other than Sublime, or if Sublime is installed in another location for you. See this page for the correct 
+	command for a couple of other popular text editors. For any other editor, you'll need to enter the command you 
+	use to launch that editor from Git Bash.
+	
+	NOTE: My fav text editor is at: C:/Program Files (x86)/Notepad++/notepad++.exe
+	
+	git config --global core.editor "'C:/Program\ Files\ \(x86\)/Notepad++/notepad++.exe'"
+	git config --global push.default upstream
+	git config --global merge.conflictstyle diff3
+
+Make sure you can start your editor from Git Bash
+	If you use Sublime, you can do this by adding the following line to your .bash_profile:
+	
+	alias subl="C:/Program\ Files/Sublime\ Text\ 2/sublime_text.exe"
+
+Restart Git Bash
+	You'll need to close and re-open Git Bash before all your changes take effect.
+
+
