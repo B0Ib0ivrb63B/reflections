@@ -313,11 +313,14 @@ Making Git configurations
 	command for a couple of other popular text editors. For any other editor, you'll need to enter the command you 
 	use to launch that editor from Git Bash.
 	
-	NOTE: My fav text editor is at: C:/Program Files (x86)/Notepad++/notepad++.exe
+	NOTE: My favorite text editor is at: C:/Program Files (x86)/Notepad++/notepad++.exe
 	
 	git config --global core.editor "'C:/Program\ Files\ \(x86\)/Notepad++/notepad++.exe'"
 	git config --global push.default upstream
 	git config --global merge.conflictstyle diff3
+	
+	...or directly edit the config file to include this line (better):
+	editor = 'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -nosession -noPlugin
 
 Make sure you can start your editor from Git Bash
 	If you use Sublime, you can do this by adding the following line to your .bash_profile:
