@@ -67,7 +67,7 @@ think it offers?
 -----------
 My answer: 
 -----------
-Files inthe staging area and not 'tracked' as versions by git, but using an intermediary 'staging area' 
+Files in the staging area and not 'tracked' as versions by git, but using an intermediary 'staging area' 
 allows you fine-grained control over which files and changes are tracked in any given commit snapshot.
 
 -----------
@@ -117,5 +117,24 @@ EXAMPLE - AFTER ADDING ONE FILE TO STAGING:
 			lesson_2_reflections.txt
 
 
-	
+============
+Question: 
+============
+How can you use the staging area to make sure you have one commit per logical change?
+
+-----------
+My answer: 
+-----------
+You can use the command 'git add' to add the files you want to track while you work on them, then use 
+'git diff' to see the changes you have made as you work.  Once you are convinced that all work on a logical 
+chunk of code(s) has been completed, then you can commit your logical change intot he git repository.
+
+-----------
+My NOTES: 
+-----------
+IN SUMMARY: 
+
+git diff             (shows difference between staging area and working directory)
+git diff --staged    (shows difference between repository and  staging area)
+git diff <id1> <id2> (shows difference of how id1 version has been changed by id2) 		
 
