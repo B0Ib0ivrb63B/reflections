@@ -19,7 +19,7 @@ What happens when you initialize a repository? Why do you need to do it?
 My answer: 
 -----------
 A 'git' repository is created (hidden file name .git), and when you run the command 'git status' you will see that
-it is 'empty', with no history (notinh has been commited yet).
+it is 'empty', with no history (noting has been commited yet).
 
 EXAMPLE: 
 
